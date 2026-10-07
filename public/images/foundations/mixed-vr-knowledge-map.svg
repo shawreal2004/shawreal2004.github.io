@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="900" viewBox="0 0 640 900" role="img" aria-labelledby="title desc">
+  <title id="title">混合 VR 图像质量评价知识地图</title>
+  <desc id="desc">数学与数字图像支撑张量、训练、视觉特征和球面视口。数据库的来源与主观标签和算法在内容分组及可靠评测处汇合。</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#657c66" stroke-width="1.5"/></marker></defs>
+  <rect width="640" height="900" rx="18" fill="#f7f4ed"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="36" y="42" font-size="12" letter-spacing="2" fill="#8b7868">FOUNDATIONS · KNOWLEDGE MAP</text>
+    <text x="36" y="78" font-size="25" font-weight="bold" fill="#344a3b">把前置知识接到研究问题上</text>
+    <text x="36" y="107" font-size="14" fill="#687268">对象：AIGC 与 UGC 混合的 360° 全景静态图片</text>
+    <rect x="36" y="135" width="568" height="106" rx="12" fill="#fffdf8" stroke="#ddd9cd"/>
+    <text x="58" y="169" font-size="18" font-weight="bold" fill="#344a3b">01  数学与数字图像</text>
+    <text x="58" y="198" font-size="14" fill="#59645a">矩阵 · 梯度 · 统计 · 采样 · 颜色与预处理</text>
+    <text x="58" y="220" font-size="13" fill="#7d8277">能解释数据形状、误差与信息损失</text>
+    <path d="M320 244V268" stroke="#657c66" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="36" y="280" width="568" height="106" rx="12" fill="#edf1e7" stroke="#d0d9c9"/>
+    <text x="58" y="315" font-size="18" font-weight="bold" fill="#344a3b">02  Python / PyTorch 与训练闭环</text>
+    <text x="58" y="343" font-size="14" fill="#59645a">Dataset → Batch → Forward → Loss → Backward</text>
+    <text x="58" y="365" font-size="13" fill="#7d8277">能定位输入、维度、设备和标签问题</text>
+    <path d="M320 389V408" fill="none" stroke="#657c66" stroke-width="2"/>
+    <path d="M320 408H174V426" fill="none" stroke="#657c66" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M320 408H466V426" fill="none" stroke="#657c66" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="36" y="440" width="272" height="155" rx="12" fill="#fffdf8" stroke="#ddd9cd"/>
+    <text x="56" y="474" font-size="18" font-weight="bold" fill="#344a3b">数据库这条线</text>
+    <text x="56" y="505" font-size="14" fill="#59645a">来源 · 内容关系 · 元数据</text>
+    <text x="56" y="534" font-size="14" fill="#59645a">主观协议 · MOS · 不确定性</text>
+    <text x="56" y="570" font-size="13" fill="#7d8277">回答：分数从哪里来？</text>
+    <rect x="332" y="440" width="272" height="155" rx="12" fill="#fffdf8" stroke="#ddd9cd"/>
+    <text x="352" y="474" font-size="18" font-weight="bold" fill="#344a3b">算法这条线</text>
+    <text x="352" y="505" font-size="14" fill="#59645a">CNN / ViT · 预训练特征</text>
+    <text x="352" y="534" font-size="14" fill="#59645a">球面视口 · 采样 · 聚合</text>
+    <text x="352" y="570" font-size="13" fill="#7d8277">回答：图片怎样变成预测？</text>
+    <path d="M172 600V621H320M468 600V621H320V647" fill="none" stroke="#657c66" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="36" y="660" width="568" height="119" rx="12" fill="#dce5d5" stroke="#bac9b1"/>
+    <text x="58" y="695" font-size="18" font-weight="bold" fill="#344a3b">03  内容分组与可靠评测</text>
+    <text x="58" y="726" font-size="14" fill="#59645a">训练 / 验证 / 测试 · 分来源指标 · 逐图预测</text>
+    <text x="58" y="752" font-size="14" fill="#59645a">失败分析 · 单因素消融 · 公平比较与可复查记录</text>
+    <text x="36" y="817" font-size="15" font-weight="bold" fill="#50694f">先跑通一个小闭环，再沿具体问题补知识。</text>
+    <text x="36" y="847" font-size="13" fill="#7d8277">这是一张学习关系图，不表示数据库或实验已经完成。</text>
+    <text x="36" y="876" font-size="11" fill="#9a9d91">shaw 的手记 · 基础学习 · 2026.10.08</text>
+  </g>
+</svg>
