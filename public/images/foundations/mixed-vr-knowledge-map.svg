@@ -5,8 +5,8 @@
   <rect width="640" height="900" rx="18" fill="#f7f4ed"/>
   <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
     <text x="36" y="42" font-size="12" letter-spacing="2" fill="#8b7868">FOUNDATIONS · KNOWLEDGE MAP</text>
-    <text x="36" y="78" font-size="25" font-weight="bold" fill="#344a3b">把前置知识接到研究问题上</text>
-    <text x="36" y="107" font-size="14" fill="#687268">对象：AIGC 与 UGC 混合的 360° 全景静态图片</text>
+    <text x="36" y="78" font-size="25" font-weight="bold" fill="#344a3b">我的前置知识地图</text>
+    <text x="36" y="107" font-size="14" fill="#687268">我的课题：AIGC 与 UGC 混合的 360° 全景静态图片</text>
     <rect x="36" y="135" width="568" height="106" rx="12" fill="#fffdf8" stroke="#ddd9cd"/>
     <text x="58" y="169" font-size="18" font-weight="bold" fill="#344a3b">01  数学与数字图像</text>
     <text x="58" y="198" font-size="14" fill="#59645a">矩阵 · 梯度 · 统计 · 采样 · 颜色与预处理</text>
@@ -34,8 +34,8 @@
     <text x="58" y="695" font-size="18" font-weight="bold" fill="#344a3b">03  内容分组与可靠评测</text>
     <text x="58" y="726" font-size="14" fill="#59645a">训练 / 验证 / 测试 · 分来源指标 · 逐图预测</text>
     <text x="58" y="752" font-size="14" fill="#59645a">失败分析 · 单因素消融 · 公平比较与可复查记录</text>
-    <text x="36" y="817" font-size="15" font-weight="bold" fill="#50694f">先跑通一个小闭环，再沿具体问题补知识。</text>
-    <text x="36" y="847" font-size="13" fill="#7d8277">这是一张学习关系图，不表示数据库或实验已经完成。</text>
+    <text x="36" y="817" font-size="15" font-weight="bold" fill="#50694f">我的学习路线：从小闭环出发，按需补知识。</text>
+    <text x="36" y="847" font-size="13" fill="#7d8277">这张图记录我的学习规划，后续逐步实践。</text>
     <text x="36" y="876" font-size="11" fill="#9a9d91">shaw 的手记 · 基础学习 · 2026.10.08</text>
   </g>
 </svg>
