@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760" role="img" aria-labelledby="title desc">
+  <title id="title">两个月学习路线：基础、复现、全景、分析</title>
+  <desc id="desc">第1至2周建立数据与训练流程；第3至4周完成普通IQA基线；第5至6周学习球面视口并建立全景基线；第7至8周完成视觉语言基线、分析与总结。12月1日至5日为机动时间。</desc>
+  <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="5" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="#60755c" stroke-width="1.5"/></marker></defs>
+  <rect width="640" height="760" rx="22" fill="#f1eee5"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="36" y="52" font-size="17" letter-spacing="3" fill="#60755c">MY FIRST RESEARCH STEPS</text>
+    <text x="36" y="99" font-size="32" font-weight="600" fill="#30372e">把两个月，走成四个阶段</text>
+    <text x="36" y="137" font-size="22" fill="#6d7468">2026.10.06 — 12.05 · 每周 10–12 小时</text>
+    <g fill="#fffdf8" stroke="#d9ddcf"><rect x="36" y="168" width="568" height="108" rx="14"/><rect x="36" y="310" width="568" height="108" rx="14"/><rect x="36" y="452" width="568" height="108" rx="14"/><rect x="36" y="594" width="568" height="108" rx="14"/></g>
+    <g fill="none" stroke="#60755c" stroke-width="2" marker-end="url(#arrow)"><path d="M320 283V300"/><path d="M320 425V442"/><path d="M320 567V584"/></g>
+    <g font-size="20" fill="#60755c"><text x="57" y="205">W1–W2</text><text x="57" y="347">W3–W4</text><text x="57" y="489">W5–W6</text><text x="57" y="631">W7–W8</text></g>
+    <g font-size="25" font-weight="600" fill="#30372e"><text x="176" y="205">读数据，懂训练</text><text x="176" y="347">跑基线，能复现</text><text x="176" y="489">到球面，看视口</text><text x="176" y="631">做对照，讲清楚</text></g>
+    <g font-size="21" fill="#626e5d"><text x="57" y="247">数据清单 · 张量形状 · MOS 与评价协议</text><text x="57" y="389">普通 NR-IQA · 配置与预测 · 失败样例</text><text x="57" y="531">ERP 与 FOV · 多视口 · 全景汇总基线</text><text x="57" y="673">CLIP-IQA · 消融分析 · 两个月复盘</text></g>
+    <text x="36" y="738" font-size="20" fill="#95664f">12.01–12.05：补缺、整理，并与导师讨论下一步</text>
+  </g>
+</svg>

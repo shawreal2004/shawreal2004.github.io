@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="850" viewBox="0 0 640 850" role="img" aria-labelledby="title desc">
+<title id="title">混合VR图片数据库和算法：研一上学期路线</title>
+<desc id="desc">六个阶段由任务与基础推进至数据试验集、主观预实验、数据库整理、算法基线和学期复盘。数据和算法相互反馈。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#61786b"/></marker></defs>
+<rect width="640" height="850" rx="24" fill="#f8f4eb"/>
+<g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#35483c">
+<text x="36" y="47" font-size="23" font-weight="700">研一上学期 · 混合 VR 质量评价</text>
+<text x="36" y="77" font-size="15" fill="#706c61">先定义问题，再做可靠数据与可检查的算法</text>
+<rect x="36" y="102" width="274" height="62" rx="13" fill="#e1e9dc"/>
+<text x="53" y="128" font-size="17" font-weight="700">UGC · 真实采集</text><text x="53" y="151" font-size="13">来源、拼接、曝光与压缩等</text>
+<rect x="330" y="102" width="274" height="62" rx="13" fill="#f0dfd1"/>
+<text x="347" y="128" font-size="17" font-weight="700">AIGC · AI 生成</text><text x="347" y="151" font-size="13">来源、生成伪影与空间合理性</text>
+<g stroke="#61786b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+<path d="M173 165V180H318V193"/><path d="M467 165V180H326V193"/>
+<path d="M320 273V289"/><path d="M320 369V385"/><path d="M320 465V481"/><path d="M320 561V577"/><path d="M320 657V673"/>
+</g>
+<g fill="#fffdf8" stroke="#d9ded1"><rect x="36" y="196" width="568" height="77" rx="13"/><rect x="36" y="292" width="568" height="77" rx="13"/><rect x="36" y="388" width="568" height="77" rx="13"/><rect x="36" y="484" width="568" height="77" rx="13"/><rect x="36" y="580" width="568" height="77" rx="13"/><rect x="36" y="676" width="568" height="77" rx="13"/></g>
+<g font-size="18" font-weight="700"><text x="55" y="226">01  任务定义与最小基础</text><text x="55" y="322">02  数据试验集与来源检查</text><text x="55" y="418">03  VR 主观评价预实验</text><text x="55" y="514">04  数据库整理与内容分组</text><text x="55" y="610">05  算法基线与分来源评测</text><text x="55" y="706">06  对照、消融与学期复盘</text></g>
+<g font-size="14" fill="#706c61"><text x="55" y="252">产出：一页任务定义 + 最小数据与训练闭环</text><text x="55" y="348">产出：样本清单 + 元数据 + 失真与接缝样例</text><text x="55" y="444">产出：评分协议 + 试评记录 + 可靠性检查</text><text x="55" y="540">产出：真实标签 + 数据版本 + 无泄漏划分</text><text x="55" y="636">产出：普通 IQA / 视口 / 视觉语言基线与失败分析</text><text x="55" y="732">产出：一项可验证改进 + 学期报告 + 下一步问题</text></g>
+<text x="36" y="791" font-size="15" font-weight="700">数据库与算法并行推进，阶段可根据反馈回退</text>
+<text x="36" y="821" font-size="13" fill="#706c61">这是待执行路线；各阶段按实际产出验收，不固定每周工时。</text>
+</g></svg>

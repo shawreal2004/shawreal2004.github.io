@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { profile, site, navigation } from '../data/site';
+import { withBase } from '../lib/blog';
+interface Props { title?: string; description?: string; }
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.title}` : `${site.title} · ${profile.stage}的视觉学习笔记`;
+const currentPath = Astro.url.pathname;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#faf8f3" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical.href} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title={site.title} href={withBase('/rss.xml')} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      try { document.documentElement.dataset.theme = localStorage.getItem('vision-theme') || 'light'; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href={withBase('/')} aria-label={`${site.title}首页`}>
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 9V5h4M23 5h4v4M27 23v4h-4M9 27H5v-4" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg></span>
+          <span>{site.title}<small>{site.englishTitle}</small></span>
+        </a>
+        <nav aria-label="主导航">
+          {navigation.map(({ label, path }) => {
+            const url = withBase(path);
+            const active = path === '/' ? currentPath === url : currentPath.startsWith(url);
+            return <a href={url} class:list={{ active }} aria-current={active ? 'page' : undefined}>{label}</a>;
+          })}
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="切换到深色模式" title="切换配色">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14a8 8 0 0 1-10-10 8 8 0 1 0 10 10Z"/></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        </button>
+      </div>
+    </header>
+    <main id="main" class="site-main"><slot /></main>
+    <footer class="site-footer">
+      <div><a class="footer-name" href={withBase('/')}>{site.title}</a><p>保持好奇，慢慢积累。</p></div>
+      <div class="footer-right"><a href={withBase('/rss.xml')}>RSS 订阅 ↗</a><span>© {new Date().getFullYear()} {profile.name} · Built with Astro</span></div>
+    </footer>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+      function updateLabel() {
+        button?.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? '切换到浅色模式' : '切换到深色模式');
+      }
+      updateLabel();
+      button?.addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = theme;
+        try { localStorage.setItem('vision-theme', theme); } catch {}
+        updateLabel();
+      });
+    </script>
+  </body>
+</html>

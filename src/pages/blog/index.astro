@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { categories } from '../../data/site';
+import { getPosts } from '../../lib/blog';
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+---
+<Base title="文章">
+  <section class="page-heading"><p class="eyebrow">THE NOTEBOOK</p><h1>一些记录，一些思考。</h1><p>学习笔记、论文阅读、实验复现，还有沿途的小小感悟。</p></section>
+  <section class="blog-browser" aria-label="文章检索">
+    <div class="filter-toolbar">
+      <div class="filter-tabs" aria-label="按分类筛选"><button type="button" data-category="全部" class="selected" aria-pressed="true">全部</button>{categories.map(category => <button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div>
+      <label class="search-box"><span class="sr-only">搜索文章标题、摘要和标签</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="post-search" type="search" placeholder="找一篇文章…" /></label>
+    </div>
+    <div class="tag-filter"><span>标签</span><button type="button" data-tag="全部" class="selected" aria-pressed="true">全部</button>{tags.map(tag => <button type="button" data-tag={tag} aria-pressed="false">#{tag}</button>)}</div>
+    <p id="result-count" class="result-count" role="status" aria-live="polite">共 {posts.length} 篇文章</p>
+    <div class="post-grid blog-grid">{posts.map(post => <div class="post-result" data-post-category={post.data.category} data-post-tags={JSON.stringify(post.data.tags)} data-search={[post.data.title, post.data.description, ...post.data.tags].join(' ').toLowerCase()}><PostCard post={post} /></div>)}</div>
+    <div id="no-results" class="empty-state" hidden><span>没有找到这篇记录。</span><p>试试其他关键词，或者换一个分类。</p><button type="button" class="button subtle" id="reset-filters">清除筛选 →</button></div>
+    <noscript><p class="notice">当前显示全部文章。启用 JavaScript 后可使用搜索和筛选。</p></noscript>
+  </section>
+  <script>
+    const categoryButtons = document.querySelectorAll<HTMLButtonElement>('[data-category]');
+    const tagButtons = document.querySelectorAll<HTMLButtonElement>('[data-tag]');
+    const results = document.querySelectorAll<HTMLElement>('.post-result');
+    const input = document.querySelector<HTMLInputElement>('#post-search')!;
+    const params = new URLSearchParams(location.search);
+    let category = params.get('category') ?? '全部';
+    if (![...categoryButtons].some(button => button.dataset.category === category)) category = '全部';
+    let tag = '全部';
+    function filter() {
+      const query = input.value.trim().toLowerCase();
+      let count = 0;
+      results.forEach(result => {
+        const matches = (category === '全部' || result.dataset.postCategory === category)
+          && (tag === '全部' || JSON.parse(result.dataset.postTags ?? '[]').includes(tag))
+          && (!query || result.dataset.search?.includes(query));
+        result.hidden = !matches;
+        if (matches) count++;
+      });
+      categoryButtons.forEach(button => { const selected = button.dataset.category === category; button.classList.toggle('selected', selected); button.setAttribute('aria-pressed', String(selected)); });
+      tagButtons.forEach(button => { const selected = button.dataset.tag === tag; button.classList.toggle('selected', selected); button.setAttribute('aria-pressed', String(selected)); });
+      document.querySelector('#result-count')!.textContent = `共 ${count} 篇文章`;
+      (document.querySelector('#no-results') as HTMLElement).hidden = count > 0;
+    }
+    categoryButtons.forEach(button => button.addEventListener('click', () => {
+      category = button.dataset.category!;
+      const url = new URL(location.href);
+      if (category === '全部') url.searchParams.delete('category'); else url.searchParams.set('category', category);
+      history.replaceState(null, '', url);
+      filter();
+    }));
+    tagButtons.forEach(button => button.addEventListener('click', () => { tag = button.dataset.tag!; filter(); }));
+    input.addEventListener('input', filter);
+    document.querySelector('#reset-filters')?.addEventListener('click', () => { category = tag = '全部'; input.value = ''; history.replaceState(null, '', location.pathname); filter(); });
+    filter();
+  </script>
+</Base>

@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPosts, dateText, articleUrl, tagUrl } from '../lib/blog';
+const posts = await getPosts();
+const years = [...new Set(posts.map(post => post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Shanghai' })))];
+const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+---
+<Base title="归档">
+  <section class="page-heading"><p class="eyebrow">A LITTLE TIMELINE</p><h1>时间里，留下的脚印。</h1><p>共 {posts.length} 篇记录。顺着时间回看，也沿着主题重读。</p></section>
+  <div class="archive-layout"><div>{years.map(year => <section class="archive-year"><h2>{year}<span>{posts.filter(post => post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Shanghai' }) === year).length} 篇</span></h2><div class="archive-list">{posts.filter(post => post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Shanghai' }) === year).map(post => <a href={articleUrl(post.id)}><time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate).slice(5)}</time><span class="archive-title">{post.data.title}{post.data.demo && <small class="demo-label">示例</small>}</span><span class="archive-category">{post.data.category}</span><span>↗</span></a>)}</div></section>)}{!posts.length && <p class="empty-state">从第一篇文章开始，慢慢留下脚印。</p>}</div><aside class="archive-tags"><p class="eyebrow">TOPICS</p><h2>按标签探索</h2><div>{tags.map(tag => <a href={tagUrl(tag)}>#{tag}<small>{posts.filter(post => post.data.tags.includes(tag)).length}</small></a>)}</div></aside></div>
+</Base>

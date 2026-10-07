@@ -1,0 +1,12 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl, dateText, readingTime } from '../lib/blog';
+interface Props { post: CollectionEntry<'blog'>; number?: number; }
+const { post, number } = Astro.props;
+---
+<article class="post-card">
+  <div class="post-topline"><span class="category-label">{post.data.category}</span><span>{post.data.demo && <span class="demo-label">示例</span>}{number !== undefined && <span class="post-number">{String(number).padStart(2, '0')}</span>}</span></div>
+  <h3><a href={articleUrl(post.id)}>{post.data.title}</a></h3>
+  <p>{post.data.description}</p>
+  <div class="post-bottom"><span><time datetime={post.data.pubDate.toISOString()}>{dateText(post.data.pubDate)}</time><span class="dot">·</span>约 {readingTime(post)} 分钟</span><a href={articleUrl(post.id)} class="arrow-link" aria-label={`阅读：${post.data.title}`}>↗</a></div>
+</article>

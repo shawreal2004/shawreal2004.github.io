@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile, site } from '../data/site';
+import { withBase } from '../lib/blog';
+---
+<Base title="关于我">
+  <section class="page-heading"><p class="eyebrow">HELLO, NICE TO MEET YOU</p><h1>你好，我是 {profile.name}。</h1><p>一个在计算机视觉的世界里，慢慢积累的研究生。</p></section>
+  <div class="about-layout">
+    <aside class="profile-card"><div class="profile-avatar">{profile.avatar ? <img src={withBase(profile.avatar)} alt={profile.name} width="100" height="100" /> : profile.initials}</div><h2>{profile.name}</h2><p>{profile.stage} · {profile.interests[0]}</p><dl>{profile.university && <div><dt>学校</dt><dd>{profile.university}</dd></div>}{profile.major && <div><dt>专业</dt><dd>{profile.major}</dd></div>}{profile.enrollmentYear && <div><dt>入学</dt><dd>{profile.enrollmentYear}</dd></div>}<div><dt>方向</dt><dd>{profile.interests.join('、')}</dd></div></dl><div class="profile-links">{profile.email && <a href={`mailto:${profile.email}`}>给我写信 <span>↗</span></a>}{profile.github && <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>}</div></aside>
+    <div class="about-copy prose"><h2>关于我</h2><p>{profile.bio}</p><p>目前就读于{profile.university}，研究生专业是{profile.major}，具体方向是 AIGC 与 UGC 混合的 VR 图片数据库和质量评价算法，主要关注 360° 全景静态图像。希望通过持续记录，把零散的知识连起来，把模糊的理解慢慢变清楚。</p><h2>为什么做个人网站</h2><p>有些知识，学过之后很容易忘记；有些思考，写下来才发现还不够清楚。{site.title}用来保存这些过程：从概念到代码，从阅读到实验，也从忙碌到回望。</p><blockquote>不必每一次都写得完整，但希望每一次都比昨天更理解一点。</blockquote><h2>你会在这里看到</h2><ul><li><strong>学习笔记：</strong>基础概念、推导过程，以及自己的理解。</li><li><strong>论文阅读：</strong>方法梳理、值得琢磨的细节和还没解开的疑问。</li><li><strong>实验记录：</strong>复现过程、实验结果和踩坑经历。</li><li><strong>研途随笔：</strong>阶段复盘，和学习生活里的小小感悟。</li></ul><h2>保持联系</h2><p>欢迎交流计算机视觉、学习方法，或者分享你正在思考的问题。</p>{profile.email && <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>}<p class="muted">文章中的理解可能会随着学习而更新。欢迎指出错误，也欢迎分享不同的想法。</p></div>
+  </div>
+</Base>

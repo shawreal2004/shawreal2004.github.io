@@ -1,0 +1,5 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/blog';
+---
+<Base title="页面未找到"><section class="not-found"><p class="eyebrow">404 / A SMALL DETOUR</p><h1>好像走到了空白页。</h1><p>这篇记录可能已经搬家，或者还没写下。<br/>回到首页，重新找找吧。</p><a class="button primary" href={withBase('/')}>回到首页 →</a></section></Base>

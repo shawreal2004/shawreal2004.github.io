@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import VisionDiagram from '../components/VisionDiagram.astro';
+import { profile, site, categories } from '../data/site';
+import { getPosts, withBase } from '../lib/blog';
+const posts = await getPosts();
+const latest = posts.slice(0, 3);
+const descriptions = ['把基础概念讲给自己听', '从方法到自己的理解', '让想法接受实践的检验', '学习之外，也记录成长'];
+---
+<Base>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> 计算机视觉 · 学习与记录</p>
+      <h1>{site.heroTitle.split('\n').map((line, i) => <span class:list={{ 'hero-accent': i === 1 }}>{line}</span>)}</h1>
+      <p class="hero-description">{site.heroDescription}</p>
+      <div class="hero-actions"><a class="button primary" href={withBase('/blog/')}>开始阅读 <span>↗</span></a><a class="button subtle" href={withBase('/about/')}>认识一下 <span>→</span></a></div>
+      <div class="hero-note"><span>LEARNING IN PUBLIC</span><span>持续学习，持续更新。</span></div>
+    </div>
+    <VisionDiagram />
+  </section>
+  <section class="intro-strip" aria-label="个人简介">
+    <div class="intro-avatar">{profile.avatar ? <img src={withBase(profile.avatar)} alt={profile.name} width="48" height="48" /> : profile.initials}</div>
+    <div class="intro-text"><strong>你好，我是{profile.name}。</strong><p>{[profile.university, profile.stage, ...profile.interests.slice(0, 1)].filter(Boolean).join(' / ')}</p></div>
+    <span class="intro-quote">「让每一次学习，都留下回声。」</span>
+    <a href={withBase('/about/')} aria-label="查看个人介绍">↗</a>
+  </section>
+  <section class="home-section">
+    <div class="section-heading"><div><p class="eyebrow">RECENT WRITING</p><h2>最近写下的</h2></div><a class="text-link" href={withBase('/blog/')}>全部文章 <span>→</span></a></div>
+    <div class="post-grid">{latest.map((post, index) => <PostCard post={post} number={index + 1} />)}{!latest.length && <p class="empty-state">第一篇学习记录，即将开始。</p>}</div>
+  </section>
+  <section class="home-section topic-section">
+    <div class="section-heading"><div><p class="eyebrow">EXPLORE BY TOPIC</p><h2>沿着兴趣探索</h2></div><span class="section-note">从知识到实践，从实践到思考。</span></div>
+    <div class="topic-grid">{categories.map((category, i) => <a class="topic-card" href={`${withBase('/blog/')}?category=${encodeURIComponent(category)}`}><span class="topic-index">0{i + 1} /</span><h3>{category}<span>↗</span></h3><p>{descriptions[i]}</p></a>)}</div>
+  </section>
+  <aside class="closing-note"><span class="small-star">✳</span><p>这里记录还在形成的理解。<br/><span>欢迎一起学习，也欢迎交流不同的想法。</span></p><a class="text-link" href={withBase('/about/')}>关于这个小站 →</a></aside>
+</Base>

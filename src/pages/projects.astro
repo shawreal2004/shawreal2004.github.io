@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/blog';
+---
+<Base title="项目">
+  <section class="page-heading"><p class="eyebrow">LEARN BY MAKING</p><h1>让理解，发生在实践里。</h1><p>这里将整理课程项目、论文复现，以及学习过程中做的小实验。</p></section>
+  <section class="project-empty"><div class="project-symbol" aria-hidden="true">↗</div><p class="eyebrow">A WORK IN PROGRESS</p><h2>项目记录，慢慢积累中。</h2><p>暂时还没有公开的项目。<br/>有了完整的过程和结果，就把它们放在这里。</p><a class="button primary" href={`${withBase('/blog/')}?category=${encodeURIComponent('实验与复现')}`}>先看看实验笔记 <span>→</span></a></section>
+  <div class="project-principles"><div><span>01</span><h3>记录过程</h3><p>从问题出发，留下每一步尝试。</p></div><div><span>02</span><h3>展示结果</h3><p>用图表和分析解释实验的收获。</p></div><div><span>03</span><h3>分享经验</h3><p>让踩过的坑，成为有用的路标。</p></div></div>
+</Base>

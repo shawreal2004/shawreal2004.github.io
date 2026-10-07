@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="930" viewBox="0 0 640 930" role="img" aria-labelledby="title desc">
+  <title id="title">从全景图像到质量分数的示意流程</title>
+  <desc id="desc">球面内容以ERP存储，指定朝向和视场角提取多个视口，用共享特征模型提取特征后汇总预测整体质量。几何面积权重与观看概率权重是不同信息。</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0 0L7 4L0 8" fill="none" stroke="#60755c" stroke-width="1.5"/></marker><clipPath id="globe"><circle cx="143" cy="240" r="65"/></clipPath></defs>
+  <rect width="640" height="930" rx="22" fill="#f1eee5"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="32" y="51" font-size="17" letter-spacing="2" fill="#60755c">UNDERSTAND THE DATA FLOW</text>
+    <text x="32" y="96" font-size="30" font-weight="600" fill="#30372e">一幅全景，怎样得到质量分数？</text>
+    <g fill="#fffdf8" stroke="#d9ddcf"><rect x="32" y="126" width="576" height="236" rx="14"/><rect x="32" y="402" width="576" height="218" rx="14"/><rect x="32" y="661" width="576" height="201" rx="14"/></g>
+    <g font-size="23" font-weight="600" fill="#30372e"><text x="52" y="165">01 · 球面内容与 ERP 表示</text><text x="52" y="441">02 · 按朝向和 FOV 提取视口</text><text x="52" y="700">03 · 提取特征，再汇总质量</text></g>
+    <circle cx="143" cy="240" r="65" fill="#e8eddf" stroke="#60755c" stroke-width="2"/>
+    <g clip-path="url(#globe)" fill="none" stroke="#94a789" stroke-width="1.5"><ellipse cx="143" cy="240" rx="30" ry="65"/><path d="M78 240H208M85 211Q143 229 201 211M85 269Q143 251 201 269M143 175V305"/></g>
+    <rect x="328" y="190" width="210" height="104" rx="4" fill="#e8eddf" stroke="#60755c" stroke-width="2"/>
+    <g stroke="#a8b79d" fill="none"><path d="M363 190V294M398 190V294M433 190V294M468 190V294M503 190V294M328 211H538M328 232H538M328 253H538M328 274H538"/></g>
+    <path d="M231 241H304" stroke="#60755c" stroke-width="2" marker-end="url(#a)"/>
+    <text x="109" y="335" font-size="21" fill="#626e5d">球面</text><text x="321" y="335" font-size="21" fill="#626e5d">ERP：矩形存储格式</text>
+    <g fill="none" stroke="#60755c" stroke-width="2" marker-end="url(#a)"><path d="M320 373V389"/><path d="M320 631V648"/></g>
+    <g stroke="#8d9f81" stroke-width="1.5"><rect x="56" y="462" width="152" height="90" rx="7" fill="#e8eddf"/><rect x="244" y="462" width="152" height="90" rx="7" fill="#f3e7dd"/><rect x="432" y="462" width="152" height="90" rx="7" fill="#e8eddf"/></g>
+    <g fill="none" stroke="#a8b79d" stroke-width="2"><path d="M64 543L114 486L144 516L167 497L202 543M440 543L478 506L510 485L576 543"/></g>
+    <g fill="none" stroke="#c59b81" stroke-width="2"><path d="M253 533L292 493L339 536L383 508"/></g>
+    <g font-size="20" fill="#626e5d" text-anchor="middle"><text x="132" y="588">视口 A</text><text x="320" y="588">视口 B</text><text x="508" y="588">视口 C</text></g>
+    <g font-size="21" text-anchor="middle" fill="#30372e"><rect x="56" y="721" width="528" height="48" rx="8" fill="#e8eddf"/><text x="320" y="753">共享特征模型 → 汇总 → 整体质量预测</text></g>
+    <text x="56" y="802" font-size="21" fill="#626e5d">先用固定视口与简单汇总建立基线，</text><text x="56" y="836" font-size="21" fill="#626e5d">再比较采样方式或观看行为建模。</text>
+    <text x="32" y="897" font-size="19" fill="#95664f">示意图；面积权重与观看概率权重需分别解释。</text>
+  </g>
+</svg>
