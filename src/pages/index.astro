@@ -21,7 +21,7 @@ const descriptions = ['把基础概念讲给自己听', '从方法到自己的�
   </section>
   <section class="intro-strip" aria-label="个人简介">
     <div class="intro-avatar">{profile.avatar ? <img src={withBase(profile.avatar)} alt={profile.name} width="48" height="48" /> : profile.initials}</div>
-    <div class="intro-text"><strong>你好，我是{profile.name}。</strong><p>{[profile.university, profile.stage, ...profile.interests.slice(0, 1)].filter(Boolean).join(' / ')}</p></div>
+    <div class="intro-text"><strong>你好，我是{profile.name}。</strong><p>{[profile.university, profile.stage, profile.major, ...profile.interests.slice(0, 1)].filter(Boolean).join(' / ')}</p></div>
     <span class="intro-quote">「让每一次学习，都留下回声。」</span>
     <a href={withBase('/about/')} aria-label="查看个人介绍">↗</a>
   </section>
