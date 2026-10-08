@@ -153,3 +153,11 @@ templates/article.md     写作模板（不参与构建）
 - 依赖构建工具会输出 Markdown 旧配置和依赖注释的提示，当前不影响检查或构建成功。
 
 本地预览截图保存在 `artifacts/`，该目录不会上传到源码仓库。
+
+## 图文入门百科与下载手册
+
+百科正文在 `src/content/blog/mixed-vr-iqa-mini-encyclopedia.md`，教学图片在 `public/images/encyclopedia/`，下载手册在 `public/reports/mixed-vr-iqa-mini-encyclopedia.pdf`。PDF 与网页共用 Markdown 正文，PDF 带章节书签和来源链接。
+
+教学图由 `scripts/generate-encyclopedia-figures.py` 生成，参数记录在 `public/images/encyclopedia/figure-manifest.json`。它们是程序绘制的示意和受控失真模拟，不是真实数据库或主观实验。
+
+正文修改后，运行 `scripts/build-encyclopedia-pdf.py` 重新生成 PDF，再把 Markdown 与 `public/reports/` 中的 PDF 一起提交；仅修改 Markdown 不会自动刷新 PDF。更改配图生成方式时，先运行配图脚本，再生成 PDF。脚本需要 Python、Pillow、NumPy、ReportLab 和 pypdf，默认使用 Windows 的中文字体，其他系统可用脚本中的字体环境变量指定字体。网站构建与在线阅读不需要 Python。

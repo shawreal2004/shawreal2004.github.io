@@ -1,0 +1,149 @@
+{
+  "pixels-rgb.png": {
+    "size": [
+      1200,
+      930
+    ],
+    "parameters": {
+      "sample_grid": [
+        60,
+        36
+      ],
+      "crop_xy": [
+        28,
+        4,
+        32,
+        8
+      ],
+      "display": "nearest-neighbor"
+    }
+  },
+  "content-origins.png": {
+    "size": [
+      1200,
+      760
+    ],
+    "parameters": {
+      "type": "source-chain schematic"
+    }
+  },
+  "blur-comparison.png": {
+    "size": [
+      1200,
+      900
+    ],
+    "parameters": {
+      "gaussian_sigma": [
+        1.5,
+        4
+      ],
+      "motion_length": 21,
+      "motion_direction": "horizontal",
+      "boundary": "reflect"
+    }
+  },
+  "noise-comparison.png": {
+    "size": [
+      1200,
+      900
+    ],
+    "parameters": {
+      "seed": 20261008,
+      "gaussian_sigma_8bit": 20,
+      "poisson_peak": 35,
+      "salt_pepper_fraction": 0.04
+    }
+  },
+  "artifact-atlas.png": {
+    "size": [
+      1200,
+      1020
+    ],
+    "parameters": {
+      "jpeg_quality": 5,
+      "jpeg_subsampling": 2,
+      "band_step": 32,
+      "unsharp_amount": 2,
+      "ringing": "analytic edge schematic",
+      "aliasing": "nearest downsample without antialiasing"
+    }
+  },
+  "semantic-errors.png": {
+    "size": [
+      1200,
+      900
+    ],
+    "parameters": {
+      "type": "hand-drawn geometry schematic; not an AI-generated sample"
+    }
+  },
+  "erp-viewports.png": {
+    "size": [
+      1200,
+      960
+    ],
+    "parameters": {
+      "ERP": [
+        1100,
+        550
+      ],
+      "ray_convention": "x right, y up, z forward; longitude atan2(x,z)",
+      "viewport": [
+        330,
+        174
+      ],
+      "horizontal_fov_deg": 90,
+      "views": [
+        [
+          0,
+          0
+        ],
+        [
+          90,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ],
+      "interpolation": "bilinear; horizontal wrap; vertical clamp"
+    }
+  },
+  "mos-and-uncertainty.png": {
+    "size": [
+      1200,
+      720
+    ],
+    "parameters": {
+      "scores": [
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          5,
+          5
+        ]
+      ],
+      "means": [
+        3,
+        3
+      ],
+      "provenance": "fabricated teaching values"
+    }
+  },
+  "content-split.png": {
+    "size": [
+      1200,
+      760
+    ],
+    "parameters": {
+      "type": "family-level split schematic; no actual dataset split"
+    }
+  }
+}
